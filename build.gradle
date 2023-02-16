@@ -1,0 +1,31 @@
+plugins {
+    id 'java'
+    id 'io.quarkus' version '2.16.1.Final'
+}
+
+group 'com.programacion.apps.authors'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+ext {
+    quarkusVersion = '2.16.1.Final'
+}
+
+dependencies {
+    // lombok con gradle sin plugin
+    compileOnly 'org.projectlombok:lombok:1.18.24'
+    annotationProcessor 'org.projectlombok:lombok:1.18.24'
+    implementation enforcedPlatform("io.quarkus.platform:quarkus-bom:${quarkusVersion}")
+    implementation 'io.quarkus:quarkus-hibernate-orm-panache'
+    implementation 'io.quarkus:quarkus-jdbc-postgresql'
+    implementation 'io.quarkus:quarkus-arc'
+    implementation 'io.quarkus:quarkus-hibernate-orm'
+    implementation 'io.quarkus:quarkus-resteasy'
+    implementation 'io.quarkus:quarkus-resteasy-jackson'
+    implementation("io.quarkus:quarkus-smallrye-openapi")
+//    implementation 'io.quarkus:quarkus-flyway'
+}
+
